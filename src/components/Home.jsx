@@ -48,9 +48,7 @@ export default class Home extends Component {
                 <h1>Chart Component</h1>
 
                 <Bar
-                  data={this.state.chartData}
-                //   width={100}
-                //   height={50}
+                  data={this.state.chartData}                  
                   options={{
                     title:{
                         display:this.props.displayTitle,
@@ -66,9 +64,9 @@ export default class Home extends Component {
                     },
                     layout:{
                         padding:{
-                            left:50,
-                            right:0,
-                            bottom:0,
+                            left:100,
+                            right:100,
+                            bottom:100,
                             top:0
                         }
                     },
