@@ -34,7 +34,7 @@ export default class MixedBarLine extends Component {
                     order:2
                 },
                 {
-                    label: 'Covid19 confirmed cases per state',
+                    label: 'Random numbers',
                     data:[
                         900000,
                         600000,
