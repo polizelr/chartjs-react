@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import {Bar, Line, Pie} from 'react-chartjs-2'
 import pattern from 'patternomaly'
 
-export default class Home extends Component {
+export default class BarChart extends Component {
     constructor(props){
         super(props)
         this.state = {
             chartData:{
                 labels:['São Paulo', 'Rio de Janeiro', 'Brasilia', 'Salvador', 'Fortaleza', 'Belo Horizonte'],
                 datasets:[{                
-                    label:'Population',
+                    label:'População',
                     data:
                     [   12252023,
                         6718903,
@@ -27,10 +27,10 @@ export default class Home extends Component {
                         pattern.draw('diamond','rgba(153, 102, 255, 0.6)'),
                         pattern.draw('zigzag-horizontal', 'rgba(255, 159, 64, 0.6)'),
                     ],
-                    // borderWidth:0.5,
-                    // borderColor:'#777',
-                    // hoverBorderWidth:1,
-                    // hoverBorderColor: '#000'                    
+                    borderWidth:0.5,
+                    borderColor:'#777',
+                    hoverBorderWidth:1,
+                    hoverBorderColor: '#000'                    
                 }] 
             }
         }
