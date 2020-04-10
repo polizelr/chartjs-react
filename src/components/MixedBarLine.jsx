@@ -46,13 +46,13 @@ export default class MixedBarLine extends Component {
                     type: 'line',
                     backgroundColor:'rgba(0,0,0,0)',
                     pointBackgroundColor: 'black',
-                    pointBorderColor: 'black',
+                    pointBorderColor: 'rgba(0, 0, 118)',
                     showLine: false,
                     pointStyle:'line',
                     pointRadius:0,
                     pointHoverRadius:0,
-                    borderWidth:3,
-                    hoverBorderWidth:3,
+                    borderWidth:5,
+                    hoverBorderWidth:5,
                     order: 1
                 }],                
                 labels:['São Paulo', 'Rio de Janeiro', 'Brasilia', 'Salvador', 'Fortaleza', 'Belo Horizonte']
