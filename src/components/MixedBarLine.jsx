@@ -54,63 +54,31 @@ export default class MixedBarLine extends Component {
                     borderWidth:3,
                     hoverBorderWidth:3,
                     order: 1
-
-                }],
+                }],                
                 labels:['São Paulo', 'Rio de Janeiro', 'Brasilia', 'Salvador', 'Fortaleza', 'Belo Horizonte']
             },
             widthScreen: 0, 
             heightScreen: 0 
         }       
-        //  Chart.plugins.register({
-        //     updated: false,
-        //     beforeDraw: function() {
-        //        var barWidth = this.chartReference.current.props.data.datasets[0]._meta[0].data[0]._model.width
-        //        var line = this.chartReference.current.props.data.datasets[1]
-        //        line.pointRadius = barWidth / 2;
-        //        line.pointHoverRadius = barWidth / 2;
-        //        if (!this.updated) {
-        //           this.chartReference.update();
-        //           this.updated = true;
-        //        }
-        //     }
-        //  })
-        
-    }
+        Chart.plugins.register({             
+            beforeDatasetDraw:(chart)=>{
+                let barWidth = chart.getDatasetMeta(0).data[0]._model.width    
+                var line = this.state.data.datasets[1]               
 
-    updateDimensions = () => {
-        this.setState({ widthScreen: window.innerWidth, heightScreen: window.innerHeight });       
-        this.handleWindowResize();
-    }    
-      
-   
-    handleWindowResize() {
-        let barWidth = this.chartReference.current.props.data.datasets[0]._meta[0].data[0]._model.width;
-       
-        let data =  this.state.data  
+                line.pointRadius = barWidth / 2;
+                line.pointHoverRadius = barWidth / 2;
+               
+                chart.update();                
+            }  
+        })       
 
-        if(data.datasets[1].pointRadius != Math.round(barWidth/2) ){
-            data.datasets[1].pointRadius = Math.round(barWidth/2)
-            data.datasets[1].pointHoverRadius = Math.round(barWidth/2)
-            this.setState({data:data})
-        }
-        console.log('bar' ,this.chartReference.current.props.data.datasets[0]._meta[0].data[0]._model.width)
-        console.log(data.datasets[1].pointRadius)
-    }
-    
-    componentDidMount(){        
-        window.addEventListener('resize', this.updateDimensions);
-        this.handleWindowResize();  
-    }
-
-    componentWillUnmount(){
-        window.removeEventListener('resize', this.updateDimensions);       
     }
 
     render(){
         return(
         <div className="chart">
-            <h1>Chart Component</h1>
-            <Bar ref={this.chartReference}
+            <h1>Chart Component</h1>            
+            <Bar 
                 data = {this.state.data}
                 options = {
                     {
